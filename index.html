@@ -1,1 +1,83 @@
-<h1>USCities Search Mini Project - coming soon</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             script-src 'self' https://cdnjs.cloudflare.com;
+             style-src 'self';
+             connect-src 'self' https://solisvr-uscities-microservices-bng7gmd3ajgefpd6.canadacentral-01.azurewebsites.net;
+             img-src 'self' data:;
+             object-src 'none';
+             base-uri 'self';
+             form-action 'self';"
+  >
+
+  <title>USCities Search</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.11/purify.min.js"
+    defer>
+  </script>
+  <script src="client.js" defer></script>
+</head>
+
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">EECE/CS 3093C · Lab 4</p>
+      <h1>USCities Search</h1>
+      <p class="subtitle">
+        Search for a U.S. city using a ZIP code or city name.
+      </p>
+    </header>
+
+    <form id="search-form" class="search-form">
+      <label for="search-input">ZIP code or city name</label>
+
+      <div class="search-controls">
+        <input
+          id="search-input"
+          name="search"
+          type="text"
+          placeholder="Try 45221 or Cincinnati"
+          autocomplete="off"
+          aria-describedby="search-help"
+        >
+        <button type="submit">Search</button>
+      </div>
+
+      <p id="search-help" class="help">
+        Type at least two characters for instant results.
+      </p>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite">
+      Enter a ZIP code or city name to begin.
+    </p>
+
+    <section id="results-section" class="results-section" hidden>
+      <h2>Search results</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>State</th>
+              <th>County</th>
+              <th>Time zone</th>
+              <th>ZIP codes</th>
+            </tr>
+          </thead>
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
